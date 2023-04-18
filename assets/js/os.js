@@ -1,0 +1,1 @@
+document.getElementById("appVersion").innerText= `${navigator.appVersion}`

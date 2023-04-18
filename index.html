@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
+        <link rel="manifest" href="/assets/manifest.json" />
+        <title>Pendu</title>
+        <script defer="defer" src="bundle.js"></script>
+        <script>
+            window.addEventListener("load", () => {
+              if ("serviceWorker" in navigator) {
+                navigator.serviceWorker
+                  .register("/sw.js", { scope: "./" })
+                  .then(function (reg) {});
+              }
+            });
+          </script> 
+    </head>
+    <body>
+        <main>
+            <h1>Pendu</h1>
+            <div>
+                <h1>
+                    Géoloc
+                </h1>
+                <center>
+                    <button id="permission-granted-button"> Position : </button><br>
+                    <span id="latitude"></span><br>
+                    <span id="longitude"></span>
+                </center>
+                <h1>
+                    Batterie
+                </h1>
+                <center>
+                    <span id="chargeBool"></span><br>
+                    <span id="chargeLvl"></span><br>
+                    <span id="chargeLvl"></span><br>
+                    <span id="chargeTime"></span><br>
+                    <span id="dischargeTime"></span><br>
+                </center>
+                <h1>
+                    Réseau
+                </h1>
+                <center>
+                    <span id="networkType"></span><br>
+                </center>
+                <h1>
+                    Plateforme
+                </h1>
+                <center>
+                    <span id="platform"></span><br>
+                </center>
+                <h1>
+                    User Agent
+                </h1>
+                <center>
+                    <span id="userAgent"></span><br>
+                </center>
+                <h1>
+                    OS
+                </h1>
+                <center>
+                    <span id="appVersion"></span><br>
+                </center>
+            </div>
+            <h2 id="pendu-status"></h2>
+            <div class="pendu-input-user">
+                <form><label for="pendu-input-user">Input</label> <input id="pendu-input-user" maxlength="1" autofocus /></form>
+            </div>
+            <div class="pendu-solution-header">
+                <div class="pendu-solution-header-title">Nombre de chances</div>
+                <div id="pendu-solution-header-title-nb-chance"><div></div></div>
+            </div>
+            <div class="pendu-solution-container">
+                <div id="pendu-solution-container-content"></div>
+                <div class="pendu-solution-container-pendu-view"><img id="pendu-solution-container-pendu-view-img" /></div>
+            </div>
+        </main>
+        <script src="./assets/js/geoloc.js"></script>
+        <script src="./assets/js/battery.js"></script>
+        <script src="./assets/js/network.js"></script>
+        <script src="./assets/js/platform.js"></script>
+        <script src="./assets/js/userAgent.js"></script>
+        <script src="./assets/js/os.js"></script>
+    </body>
+</html>
